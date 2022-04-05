@@ -33,7 +33,7 @@ public class CovidServesis {
     public void deleteById(Integer id) {
         Optional<Covid> covid=covidRepo.findById(id);
         if(!covid.isPresent()){
-            throw new IllegalStateException("employee not found ");
+            throw new IllegalStateException("covid not found ");
         }
         covidRepo.deleteById(id);
 
@@ -57,7 +57,7 @@ public class CovidServesis {
                 !Objects.equals(covid.getDeaths(),deaths)){
             covid.setDeaths(deaths);
         }
-        if(deaths!=null &&
+        if(recovered!=null &&
                 !Objects.equals(covid.getRecovered(),recovered)){
             covid.setRecovered(recovered);
         }
