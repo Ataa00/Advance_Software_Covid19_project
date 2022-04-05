@@ -19,7 +19,7 @@ public class CovidControllers {
         this.covidServesis = covidServesis;
     }
     @GetMapping
-    public List<Covid> getEmployees(){
+    public List<Covid> getCovid(){
         return covidServesis.getCovid();
     }
     @GetMapping("byId/{id}")
