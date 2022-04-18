@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Mastaer Save\Desktop\Advance_Software_Covid19_project\FrontEnd\windows\runner\flutter_window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Mastaer Save\Desktop\Advance_Software_Covid19_project\FrontEnd\windows\runner\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Mastaer Save\Desktop\Advance_Software_Covid19_project\FrontEnd\windows\runner\utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Mastaer Save\Desktop\Advance_Software_Covid19_project\FrontEnd\windows\runner\win32_window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Mastaer Save\Desktop\Advance_Software_Covid19_project\FrontEnd\windows\flutter\generated_plugin_registrant.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Mastaer Save\Desktop\Advance_Software_Covid19_project\FrontEnd\windows\runner\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="C:\Users\Mastaer Save\Desktop\Advance_Software_Covid19_project\FrontEnd\windows\runner\Runner.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C6009CE2-7552-3938-8834-4198D9AE7EB8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

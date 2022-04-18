@@ -1,0 +1,10 @@
+^C:\USERS\MASTAER SAVE\DESKTOP\ADVANCE_SOFTWARE_COVID19_PROJECT\FRONTEND\BUILD\WINDOWS\CMAKEFILES\91F9C69961E3ABD8EB35E45D19679883\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

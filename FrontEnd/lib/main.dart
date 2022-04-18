@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:covid_project/pageone.dart';
+import 'package:covid_project/mainPage/enter.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,12 +11,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'covid project',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primaryColor: prcolor,
-          scaffoldBackgroundColor: bgcolor,
-          brightness: Brightness.dark,
-          textTheme: TextTheme(displayMedium: TextStyle(color: Colors.white))),
-      home: wellcomsecreen(),
+          //primaryColor: prcolor,
+          // scaffoldBackgroundColor: bgcolor,
+          // brightness: Brightness.dark,
+          // textTheme: TextTheme(displayMedium: TextStyle(color: Colors.white))
+          ),
+      home: front(),
     );
   }
 }
@@ -32,14 +35,11 @@ class wellcomsecreen extends StatelessWidget {
                 image: DecorationImage(
                   image: AssetImage("images/4.jpg"),
                   fit: BoxFit.cover,
-                  //  scale: 12,
                 ),
               ),
             )),
         Expanded(
-          
             child: Column(
-            
           children: [
             RichText(
                 text: TextSpan(children: [

@@ -1,0 +1,10 @@
+C:/Users/Mastaer Save/Desktop/Advance_Software_Covid19_project/FrontEnd/build/windows/CMakeFiles/INSTALL.dir
+C:/Users/Mastaer Save/Desktop/Advance_Software_Covid19_project/FrontEnd/build/windows/CMakeFiles/ALL_BUILD.dir
+C:/Users/Mastaer Save/Desktop/Advance_Software_Covid19_project/FrontEnd/build/windows/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Mastaer Save/Desktop/Advance_Software_Covid19_project/FrontEnd/build/windows/flutter/CMakeFiles/flutter_wrapper_plugin.dir
+C:/Users/Mastaer Save/Desktop/Advance_Software_Covid19_project/FrontEnd/build/windows/flutter/CMakeFiles/flutter_wrapper_app.dir
+C:/Users/Mastaer Save/Desktop/Advance_Software_Covid19_project/FrontEnd/build/windows/flutter/CMakeFiles/flutter_assemble.dir
+C:/Users/Mastaer Save/Desktop/Advance_Software_Covid19_project/FrontEnd/build/windows/flutter/CMakeFiles/INSTALL.dir
+C:/Users/Mastaer Save/Desktop/Advance_Software_Covid19_project/FrontEnd/build/windows/runner/CMakeFiles/INSTALL.dir
+C:/Users/Mastaer Save/Desktop/Advance_Software_Covid19_project/FrontEnd/build/windows/runner/CMakeFiles/covid_project.dir
+C:/Users/Mastaer Save/Desktop/Advance_Software_Covid19_project/FrontEnd/build/windows/runner/CMakeFiles/ALL_BUILD.dir
