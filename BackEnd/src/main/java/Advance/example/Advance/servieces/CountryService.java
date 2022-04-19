@@ -2,13 +2,10 @@ package Advance.example.Advance.servieces;
 
 import Advance.example.Advance.Model.Country;
 import Advance.example.Advance.Model.Covid;
-import Advance.example.Advance.Model.User;
 import Advance.example.Advance.repositires.CountryRepo;
-import Advance.example.Advance.repositires.CovidRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,11 +13,13 @@ import java.util.Optional;
 @Service
 public class CountryService{
         private final CountryRepo countryRepo;
+        private final CovidService covidService;
 
         @Autowired
-        public CountryService(CountryRepo countryRepo) {
+        public CountryService(CountryRepo countryRepo, CovidService covidService) {
             this.countryRepo = countryRepo;
 
+            this.covidService = covidService;
         }
 
         public List<Country> getCountry() {
@@ -40,7 +39,9 @@ public class CountryService{
         return countryRepo.getByName(name).get();
     }
     public void addCountry(Country country) {
-
+        Covid covid = country.getCovid();
+        covid.setCountry(country);
+        covidService.addCovid(covid);
         countryRepo.save(country);
     }
     public void deleteById(Integer id) {
