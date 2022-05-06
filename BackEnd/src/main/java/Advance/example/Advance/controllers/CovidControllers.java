@@ -1,7 +1,7 @@
 package Advance.example.Advance.controllers;
 
 import Advance.example.Advance.Model.Covid;
-import Advance.example.Advance.servieces.CovidService;
+import Advance.example.Advance.servieces.CovidServesis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,39 +12,31 @@ import java.util.List;
 @RequestMapping(path = "api/v1/covid")
 
 public class CovidControllers {
-    private final CovidService covidService;
+    private final CovidServesis covidServesis;
 
     @Autowired
-    public CovidControllers(CovidService covidService) {
-        this.covidService = covidService;
+    public CovidControllers(CovidServesis covidServesis) {
+        this.covidServesis = covidServesis;
     }
     @GetMapping
     public List<Covid> getCovid(){
-        return covidService.getCovid();
+        return covidServesis.getCovid();
     }
     @GetMapping("byId/{id}")
     public Covid getById(@PathVariable Integer id){
-        return covidService.getById(id);
+        return covidServesis.getById(id);
     }
     @GetMapping("byLastUpdate/{lastUpdate}")
     public List<Covid> getByLastUpdate(@PathVariable Date lastUpdate){
-        return covidService.getByLastUpdate(lastUpdate);
-    }
-    @GetMapping("byCountry/{countryId}")
-    public Covid getByCountry(@PathVariable Integer countryId){
-       return covidService.getCovidByCountry(countryId);
-    }
-    @GetMapping("byState/{StateId}")
-    public Covid getByState(@PathVariable Integer stateId){
-        return covidService.getCovidByState(stateId);
+        return covidServesis.getByLastUpdate(lastUpdate);
     }
     @DeleteMapping("deleteCovid/{id}")
     public void deleteById(@PathVariable Integer id){
-        covidService.deleteById(id);
+        covidServesis.deleteById(id);
     }
     @PostMapping("/addCovid")
     public void addCovid(@RequestBody Covid covid){
-        covidService.addCovid(covid);
+        covidServesis.addCovid(covid);
     }
     @PutMapping("updateByID/{ID}")
     public void updateCovid(
@@ -53,25 +45,7 @@ public class CovidControllers {
             @RequestParam (required = false) Integer confirmed,
             @RequestParam (required = false) Integer deaths,
             @RequestParam (required = false) Integer recovered){
-        covidService.updateCovid(ID,lastUpdate,confirmed,deaths,recovered);
-    }
-    @PutMapping("updateByCountry/{countryId}")
-    public void updateCovidByCountry(
-            @PathVariable  Integer countryId ,
-            @RequestParam (required = false) Date lastUpdate,
-            @RequestParam (required = false) Integer confirmed,
-            @RequestParam (required = false) Integer deaths,
-            @RequestParam (required = false) Integer recovered){
-        covidService.updateCovidByCountry(countryId,lastUpdate,confirmed,deaths,recovered);
-    }
-    @PutMapping("updateByState/{stateId}")
-    public void updateCovidByState(
-            @PathVariable  Integer stateId ,
-            @RequestParam (required = false) Date lastUpdate,
-            @RequestParam (required = false) Integer confirmed,
-            @RequestParam (required = false) Integer deaths,
-            @RequestParam (required = false) Integer recovered){
-        covidService.updateCovidByState(stateId,lastUpdate,confirmed,deaths,recovered);
+        covidServesis.updateCovid(ID,lastUpdate,confirmed,deaths,recovered);
     }
 
 }

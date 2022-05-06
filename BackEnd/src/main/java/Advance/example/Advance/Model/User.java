@@ -19,9 +19,7 @@ public class User {
     private String password;
     @Column(unique = true)
     private String email;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "role_id",referencedColumnName = "id")
-    private Role role;
+    private Integer role;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "country_id",referencedColumnName = "id")
     private Country country;
@@ -35,13 +33,13 @@ public class User {
     public User() {
     }
 
-    public User(String userName, String firstName, String lastName, String password, String email) {
+    public User(String userName, String firstName, String lastName, String password, String email, Integer role) {
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
-
+        this.role = role;
     }
 
     public Integer getId() {
@@ -90,11 +88,11 @@ public class User {
         this.email = email;
     }
 
-    public Role getRole() {
+    public Integer getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(Integer role) {
         this.role = role;
     }
 
