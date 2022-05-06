@@ -1,14 +1,10 @@
 package Advance.example.Advance.controllers;
 
 import Advance.example.Advance.Model.Country;
-import Advance.example.Advance.Model.Covid;
-import Advance.example.Advance.Model.User;
 import Advance.example.Advance.servieces.CountryService;
-import Advance.example.Advance.servieces.CovidServesis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
 import java.util.List;
 
 @RestController
