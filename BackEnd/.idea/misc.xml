@@ -9,6 +9,7 @@
   </component>
 <<<<<<< HEAD
   <component name="ProjectRootManager" version="2" languageLevel="JDK_15" default="true" project-jdk-name="15" project-jdk-type="JavaSDK" />
+<<<<<<< HEAD
   <component name="ProjectType">
     <option name="id" value="jpab" />
   </component>
@@ -20,4 +21,6 @@
 =======
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="15" project-jdk-type="JavaSDK" />
 >>>>>>> c3aee38102f7028c3d7becacae81d7630f45ca98
+=======
+>>>>>>> parent of eaf0b97 (Backend Final push V1)
 </project>
