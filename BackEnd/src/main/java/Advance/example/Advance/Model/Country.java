@@ -11,38 +11,31 @@ import java.util.Set;
 @Entity
 public class Country {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
     private String name;
-    private String postalCode;
-    @OneToOne
-    private Covid covid;
-    @OneToMany(mappedBy = "country")
+    @OneToMany(mappedBy ="country")
     @JsonIgnore
-    private Set<User>userSet=new HashSet<>();
-    @OneToMany(mappedBy = "country")
-    @JsonIgnore
-    private Set<State>stateSet=new HashSet<>();
+    private Set<Covid> covidSet = new HashSet<>();
+
+
+
 
 
     public Country() {
     }
 
-    public Country(String name, String postalCode) {
+    public Country(String name, String id) {
         this.name = name;
-        this.postalCode = postalCode;
+        this.id = id;
     }
 
-    public Country(String name, String postalCode, Covid covid) {
-        this.name = name;
-        this.postalCode = postalCode;
-        this.covid = covid;
-    }
-
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -52,37 +45,12 @@ public class Country {
         this.name = name;
     }
 
-    public String getPostalCode() {
-        return postalCode;
+
+
+    public Set<Covid> getCovidSet() {
+        return covidSet;
     }
 
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
 
-    public Covid getCovid() {
-        return covid;
-    }
 
-    public void setCovid(Covid covid) {
-        this.covid = covid;
-    }
-
-    public Set<User> getUserSet() {
-        return userSet;
-    }
-
-    public Set<State> getStateSet() {
-        return stateSet;
-    }
-
-    @Override
-    public String toString() {
-        return "Country{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", postalCode='" + postalCode + '\'' +
-                ", covid=" + covid +
-                '}';
-    }
 }

@@ -19,27 +19,23 @@ public class User {
     private String password;
     @Column(unique = true)
     private String email;
-    private Integer role;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "country_id",referencedColumnName = "id")
-    private Country country;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "state_id",referencedColumnName = "id")
-    private State state;
-    @OneToMany(mappedBy = "state")
-    @JsonIgnore
-    private Set<User> userSet=new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "role_id",referencedColumnName = "id")
+    private Role role;
+
+
+
 
     public User() {
     }
 
-    public User(String userName, String firstName, String lastName, String password, String email, Integer role) {
+    public User(String userName, String firstName, String lastName, String password, String email) {
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
-        this.role = role;
+
     }
 
     public Integer getId() {
@@ -88,29 +84,16 @@ public class User {
         this.email = email;
     }
 
-    public Integer getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(Integer role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
-    public Country getCountry() {
-        return country;
-    }
 
-    public void setCountry(Country country) {
-        this.country = country;
-    }
 
-    public State getState() {
-        return state;
-    }
-
-    public void setState(State state) {
-        this.state = state;
-    }
 
     @Override
     public String toString() {
@@ -122,8 +105,6 @@ public class User {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", role=" + role +
-                ", country=" + country +
-                ", state=" + state +
                 '}';
     }
 }

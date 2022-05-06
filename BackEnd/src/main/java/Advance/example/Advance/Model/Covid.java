@@ -2,6 +2,8 @@ package Advance.example.Advance.Model;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Table(name = "covid",schema = "public")
 @Entity
@@ -9,71 +11,56 @@ public class Covid {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Date lastUpdate;
-    private Integer confirmed;
-    private Integer deaths;
-    private Integer recovered;
-    @OneToOne(mappedBy = "covid", cascade = CascadeType.ALL)
-    private State state;
-    @OneToOne(mappedBy = "covid", cascade = CascadeType.ALL)
+    private Date dateReported;
+
+    private Integer newDeaths;
+
+    private Integer newCases;
+    private Integer cumulativeCases;
+    private Integer cumulativeDeaths;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "country_id",referencedColumnName = "id")
     private Country country;
 
     public Covid() {
     }
 
-    public Covid(Date lastUpdate, Integer confirmed,
-                 Integer deaths, Integer recovered,
-                 State state, Country country) {
-        this.lastUpdate = lastUpdate;
-        this.confirmed = confirmed;
-        this.deaths = deaths;
-        this.recovered = recovered;
-        this.state = state;
-        this.country = country;
+    public Covid(Date dateReported, Integer newDeaths
+            , Integer newCases, Integer cumulativeCases, Integer cumulativeDeaths) {
+        this.dateReported = dateReported;
+        this.newDeaths = newDeaths;
+        this.newCases = newCases;
+        this.cumulativeCases = cumulativeCases;
+        this.cumulativeDeaths = cumulativeDeaths;
+
     }
 
     public Integer getId() {
         return id;
     }
 
-    public Date getLastUpdate() {
-        return lastUpdate;
+    public Integer getCumulativeDeaths() {
+        return cumulativeDeaths;
     }
 
-    public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
+    public void setCumulativeDeaths(Integer cumulativeDeaths) {
+        this.cumulativeDeaths = cumulativeDeaths;
     }
 
-    public Integer getConfirmed() {
-        return confirmed;
+    public Date getDateReported() {
+        return dateReported;
     }
 
-    public void setConfirmed(Integer confirmed) {
-        this.confirmed = confirmed;
+    public void setDateReported(Date dateReported) {
+        this.dateReported = dateReported;
     }
 
-    public Integer getDeaths() {
-        return deaths;
+    public Integer getNewDeaths() {
+        return newDeaths;
     }
 
-    public void setDeaths(Integer deaths) {
-        this.deaths = deaths;
-    }
-
-    public Integer getRecovered() {
-        return recovered;
-    }
-
-    public void setRecovered(Integer recovered) {
-        this.recovered = recovered;
-    }
-
-    public State getState() {
-        return state;
-    }
-
-    public void setState(State state) {
-        this.state = state;
+    public void setNewDeaths(Integer newDeaths) {
+        this.newDeaths = newDeaths;
     }
 
     public Country getCountry() {
@@ -84,16 +71,36 @@ public class Covid {
         this.country = country;
     }
 
+    public Integer getNewCases() {
+        return newCases;
+    }
+
+    public void setNewCases(Integer newCases) {
+        this.newCases = newCases;
+    }
+
+    public Integer getCumulativeCases() {
+        return cumulativeCases;
+    }
+
+    public void setCumulativeCases(Integer cumulativeCases) {
+        this.cumulativeCases = cumulativeCases;
+    }
+
+
+
+
     @Override
     public String toString() {
         return "Covid{" +
                 "id=" + id +
-                ", lastUpdate=" + lastUpdate +
-                ", confirmed=" + confirmed +
-                ", deaths=" + deaths +
-                ", recovered=" + recovered +
-                ", state=" + state +
-                ", country=" + country +
+                ", dateReported=" + dateReported +
+                ", newDeaths=" + newDeaths +
+                ", newCases=" + newCases +
+                ", cumulativeCases=" + cumulativeCases +
+                ", cumulativeDeaths=" + cumulativeDeaths +
                 '}';
     }
 }
+
+
