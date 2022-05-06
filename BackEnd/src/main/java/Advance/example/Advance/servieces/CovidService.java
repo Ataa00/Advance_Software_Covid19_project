@@ -2,7 +2,11 @@ package Advance.example.Advance.servieces;
 
 import Advance.example.Advance.Model.Country;
 import Advance.example.Advance.Model.Covid;
+<<<<<<< HEAD
 import Advance.example.Advance.repositires.CountryRepo;
+=======
+import Advance.example.Advance.Model.State;
+>>>>>>> c3aee38102f7028c3d7becacae81d7630f45ca98
 import Advance.example.Advance.repositires.CovidRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,12 +16,16 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+<<<<<<< HEAD
 import java.util.Set;
+=======
+>>>>>>> c3aee38102f7028c3d7becacae81d7630f45ca98
 
 @Service
 public class CovidService {
     private final CovidRepo covidRepo;
     private final CountryService countryService;
+<<<<<<< HEAD
     private final CountryRepo countryRepo;
 
     @Autowired
@@ -27,6 +35,15 @@ public class CovidService {
 
 
         this.countryRepo = countryRepo;
+=======
+    private final StateService stateService;
+    @Autowired
+    public CovidService(CovidRepo covidRepo, CountryService countryService, StateService stateService) {
+        this.covidRepo = covidRepo;
+        this.countryService = countryService;
+
+        this.stateService = stateService;
+>>>>>>> c3aee38102f7028c3d7becacae81d7630f45ca98
     }
 
     public List<Covid> getCovid() {
@@ -46,6 +63,7 @@ public class CovidService {
         covidRepo.deleteById(id);
 
     }
+<<<<<<< HEAD
     /*public void addAllCovidRecords(Set<Covid> covidSet){
         for(Covid covid:covidSet){
             Optional<Country>country=countryRepo.findByPostalCode(covid.getCountry().getPostalCode());
@@ -141,5 +159,101 @@ public class CovidService {
     public List<Covid> getByDateReportedAndCountry(Date dateReported, String countryId) {
         Country country=countryService.getById(countryId);
         return covidRepo.findAllByCountryAndDateReported(country,dateReported);
+=======
+    public void addCovid(Covid covid) {
+        covidRepo.save(covid);
+    }
+    @Transactional
+    public void updateCovid(Integer ID,Date lastUpdate,Integer confirmed,Integer deaths,Integer recovered) {
+        Covid covid=getById(ID);
+
+        if(lastUpdate!=null &&
+                !Objects.equals(covid.getLastUpdate(),lastUpdate)){
+            covid.setLastUpdate(lastUpdate);
+        }
+        if(confirmed!=null &&
+                !Objects.equals(covid.getConfirmed(),confirmed)){
+            covid.setConfirmed(confirmed);
+        }
+        if(deaths!=null &&
+                !Objects.equals(covid.getDeaths(),deaths)){
+            covid.setDeaths(deaths);
+        }
+        if(recovered!=null &&
+                !Objects.equals(covid.getRecovered(),recovered)){
+            covid.setRecovered(recovered);
+        }
+    }
+    public List<Covid> getByLastUpdate(Date lastUpdate) {
+        return covidRepo.findAllByLastUpdate(lastUpdate);
+
+    }
+
+    public Covid getCovidByCountry(Integer countryId) {
+        Country country= countryService.getById(countryId);
+        Optional<Covid> covid=covidRepo.findByCountry(country);
+        if(!covid.isPresent()){
+            throw new IllegalStateException("no record for this country");
+        }
+        return covid.get();
+    }
+
+    public Covid getCovidByState(Integer stateId) {
+        State state= stateService.getById(stateId);
+        Optional<Covid> covid=covidRepo.findByState(state);
+        if(!covid.isPresent()){
+            throw new IllegalStateException("no record for this state");
+        }
+        return covid.get();
+    }
+
+    public void updateCovidByCountry(Integer countryId,
+                                     Date lastUpdate,
+                                     Integer confirmed,
+                                     Integer deaths,
+                                     Integer recovered) {
+        Covid covid = getCovidByCountry(countryId);
+
+        if (lastUpdate != null &&
+                !Objects.equals(covid.getLastUpdate(), lastUpdate)) {
+            covid.setLastUpdate(lastUpdate);
+        }
+        if (confirmed != null &&
+                !Objects.equals(covid.getConfirmed(), confirmed)) {
+            covid.setConfirmed(confirmed);
+        }
+        if (deaths != null &&
+                !Objects.equals(covid.getDeaths(), deaths)) {
+            covid.setDeaths(deaths);
+        }
+        if (recovered != null &&
+                !Objects.equals(covid.getRecovered(), recovered)) {
+            covid.setRecovered(recovered);
+        }
+    }
+        public void updateCovidByState(Integer stateId,
+                Date lastUpdate,
+                Integer confirmed,
+                Integer deaths,
+                Integer recovered) {
+            Covid covid=getCovidByState(stateId);
+
+            if(lastUpdate!=null &&
+                    !Objects.equals(covid.getLastUpdate(),lastUpdate)){
+                covid.setLastUpdate(lastUpdate);
+            }
+            if(confirmed!=null &&
+                    !Objects.equals(covid.getConfirmed(),confirmed)){
+                covid.setConfirmed(confirmed);
+            }
+            if(deaths!=null &&
+                    !Objects.equals(covid.getDeaths(),deaths)){
+                covid.setDeaths(deaths);
+            }
+            if(recovered!=null &&
+                    !Objects.equals(covid.getRecovered(),recovered)){
+                covid.setRecovered(recovered);
+            }
+>>>>>>> c3aee38102f7028c3d7becacae81d7630f45ca98
     }
 }

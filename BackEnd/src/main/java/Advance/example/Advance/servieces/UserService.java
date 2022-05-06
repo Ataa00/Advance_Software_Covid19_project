@@ -1,5 +1,6 @@
 package Advance.example.Advance.servieces;
 
+<<<<<<< HEAD
 import Advance.example.Advance.Model.Role;
 import Advance.example.Advance.Model.User;
 import Advance.example.Advance.repositires.RoleRepo;
@@ -9,6 +10,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+=======
+import Advance.example.Advance.Model.User;
+import Advance.example.Advance.repositires.UserRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.sql.Date;
+>>>>>>> c3aee38102f7028c3d7becacae81d7630f45ca98
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +26,7 @@ import java.util.Optional;
 @Service
 public class UserService {
     private final UserRepo userRepo;
+<<<<<<< HEAD
     private final RoleRepo roleRepo;
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -27,6 +38,11 @@ public class UserService {
 
     public String getEncodedPassword(String password) {
         return passwordEncoder.encode(password);
+=======
+    @Autowired
+    public UserService(UserRepo userRepo) {
+        this.userRepo = userRepo;
+>>>>>>> c3aee38102f7028c3d7becacae81d7630f45ca98
     }
 
     public List<User> getUsers() {
@@ -51,12 +67,15 @@ public class UserService {
         if( userByUserName.isPresent()){
             throw new IllegalStateException("this username has been used before");
         }
+<<<<<<< HEAD
         Optional<Role> role = roleRepo.findByRoleName(user.getRole().getRoleName());
         if(!role.isPresent()){
             throw new IllegalStateException("there is no role with this name");
         }
         user.setRole(role.get());
         user.setPassword(getEncodedPassword(user.getPassword()));
+=======
+>>>>>>> c3aee38102f7028c3d7becacae81d7630f45ca98
         userRepo.save(user);
     }
 

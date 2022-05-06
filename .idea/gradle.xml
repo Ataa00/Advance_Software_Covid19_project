@@ -5,7 +5,10 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/FrontEnd/android" />
+<<<<<<< HEAD
         <option name="gradleJvm" value="11" />
+=======
+>>>>>>> c3aee38102f7028c3d7becacae81d7630f45ca98
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/FrontEnd/android" />

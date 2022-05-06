@@ -19,12 +19,27 @@ public class User {
     private String password;
     @Column(unique = true)
     private String email;
+<<<<<<< HEAD
     @ManyToOne
     @JoinColumn(name = "role_id",referencedColumnName = "id")
     private Role role;
 
 
 
+=======
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "role_id",referencedColumnName = "id")
+    private Role role;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "country_id",referencedColumnName = "id")
+    private Country country;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "state_id",referencedColumnName = "id")
+    private State state;
+    @OneToMany(mappedBy = "state")
+    @JsonIgnore
+    private Set<User> userSet=new HashSet<>();
+>>>>>>> c3aee38102f7028c3d7becacae81d7630f45ca98
 
     public User() {
     }
