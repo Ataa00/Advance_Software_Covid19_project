@@ -93,7 +93,10 @@ public class UserService {
                     !Objects.equals(user1.getPassword(),password)){
                 user1.setPassword(password);
             }
-
+            if(role!=null &&
+                    !Objects.equals(user1.getPassword(),password)){
+                user1.setRole(role);
+            }
 
         }
     }
